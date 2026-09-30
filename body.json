@@ -1,0 +1,9 @@
+{
+    "question": "Apa bahasa Indonesianya 'Banyu'?",
+    "explanation": "Banyu berarti air dalam bahasa Cirebon.",
+    "options": [
+        { "option_text": "Api", "is_correct": false },
+        { "option_text": "Air", "is_correct": true },
+        { "option_text": "Angin", "is_correct": false }
+    ]
+}
