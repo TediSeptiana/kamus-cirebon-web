@@ -1,18 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebKamusController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+| Di sini kita mendaftarkan rute web untuk antarmuka pengguna (front-end)
+| Kamus Digital Bahasa Cirebon.
+|--------------------------------------------------------------------------
 */
 
+
+// Halaman Aplikasi Kamus Utama
 Route::get('/', function () {
-    return view('welcome');
+    return view('dictionary.index');
 });
+
+Route::get('/', [WebKamusController::class, 'index'])->name('dictionary.index');

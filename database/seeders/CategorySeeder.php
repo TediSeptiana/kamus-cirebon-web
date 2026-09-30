@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -8,22 +9,16 @@ class CategorySeeder extends Seeder
 {
     public function run(): void
     {
-        Category::create([
-            'name' => 'Lingkungan Sekolah',
-            'slug' => 'lingkungan-sekolah',
-            'description' => 'Kosakata yang sering digunakan di lingkungan sekolah.'
-        ]);
+        $categories = [
+            ['slug' => 'lingkungan-sekolah',   'name' => 'Lingkungan Sekolah',      'description' => 'Kosakata yang sering digunakan di lingkungan sekolah.'],
+            ['slug' => 'kehidupan-sehari-hari','name' => 'Kehidupan Sehari-hari',   'description' => 'Kosakata untuk aktivitas dan benda sehari-hari.'],
+            ['slug' => 'keluarga-sosial',      'name' => 'Keluarga & Sosial',       'description' => 'Kosakata tentang keluarga dan interaksi sosial.'],
+            ['slug' => 'sifat-karakter',       'name' => 'Sifat & Karakter',        'description' => 'Kosakata tentang sifat, karakter, dan keadaan.'],
+            ['slug' => 'agama-budaya',         'name' => 'Agama & Budaya',          'description' => 'Kosakata tentang agama, adat, dan budaya.'],
+        ];
 
-        Category::create([
-            'name' => 'Kehidupan Sehari-hari',
-            'slug' => 'kehidupan-sehari-hari',
-            'description' => 'Kosakata untuk percakapan sehari-hari.'
-        ]);
-        
-        Category::create([
-            'name' => 'Keluarga',
-            'slug' => 'keluarga',
-            'description' => 'Kosakata seputar anggota keluarga dan kerabat.'
-        ]);
+        foreach ($categories as $cat) {
+            Category::updateOrCreate(['slug' => $cat['slug']], $cat);
+        }
     }
 }
